@@ -10,12 +10,14 @@ import co.com.gym.entrenamiento.personalizado.entitys.TipoServicio;
 import co.com.gym.entrenamiento.personalizado.events.InstructorAgregado;
 import co.com.gym.entrenamiento.personalizado.events.PacienteAgregado;
 import co.com.gym.entrenamiento.personalizado.events.PersonalizadoCreado;
+import co.com.gym.entrenamiento.personalizado.events.PlanAgregado;
 import co.com.gym.entrenamiento.personalizado.values.Edad;
 import co.com.gym.entrenamiento.personalizado.values.Fecha;
 import co.com.gym.entrenamiento.personalizado.values.Medida;
 import co.com.gym.entrenamiento.personalizado.values.PersonalizadoId;
 import co.com.gym.entrenamiento.rutina.values.RutinaId;
 import co.com.gym.generic.values.Apellido;
+import co.com.gym.generic.values.Descripcion;
 import co.com.gym.generic.values.Nombre;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -64,6 +66,10 @@ public class Personalizado extends AggregateEvent<PersonalizadoId> {
                                 Apellido apellido, Edad edad, Medida medida) {
         appendChange(new PacienteAgregado(personalizadoId, nombre, apellido, edad, medida)).apply();
 
+    }
+
+    public void agregarPlan(PersonalizadoId personalizadoId, String nombrePlan, Descripcion descripcion){
+        appendChange(new PlanAgregado(personalizadoId,nombrePlan,descripcion)).apply();
     }
 
     public InstructorId instructorId() {
