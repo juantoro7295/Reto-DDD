@@ -4,8 +4,10 @@ import co.com.gym.entrenamiento.instructor.entitys.Area;
 import co.com.gym.entrenamiento.instructor.entitys.Contrato;
 import co.com.gym.entrenamiento.instructor.entitys.Especializacion;
 import co.com.gym.entrenamiento.instructor.events.AreaAgregada;
+import co.com.gym.entrenamiento.instructor.events.ContratoAgregado;
 import co.com.gym.entrenamiento.instructor.events.InstructorCreado;
 import co.com.gym.entrenamiento.instructor.values.InstructorId;
+import co.com.gym.entrenamiento.instructor.values.TipoDeContrato;
 import co.com.gym.generic.values.Apellido;
 import co.com.gym.generic.values.Descripcion;
 import co.com.gym.generic.values.Nombre;
@@ -43,6 +45,10 @@ public class Instructor extends AggregateEvent<InstructorId> {
 
     public void agregarArea(String nombreArea, Descripcion descripcion, InstructorId instructorId) {
         appendChange(new AreaAgregada(nombreArea, descripcion, instructorId)).apply();
+    }
+
+    public void agregarContrato(InstructorId instructorId, String nombreContrato, TipoDeContrato tipoDeContrato){
+        appendChange(new ContratoAgregado(instructorId,nombreContrato,tipoDeContrato));
     }
 
     public Nombre nombre() {

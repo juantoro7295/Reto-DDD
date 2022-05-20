@@ -1,9 +1,10 @@
 package co.com.gym.entrenamiento.instructor.usecase;
 
-import co.com.gym.entrenamiento.instructor.commands.AgregarArea;
+import co.com.gym.entrenamiento.instructor.commands.AgregarContrato;
 import co.com.gym.entrenamiento.instructor.events.AreaAgregada;
+import co.com.gym.entrenamiento.instructor.events.ContratoAgregado;
 import co.com.gym.entrenamiento.instructor.values.InstructorId;
-import co.com.gym.generic.values.Descripcion;
+import co.com.gym.entrenamiento.instructor.values.TipoDeContrato;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
@@ -13,29 +14,29 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class AgregarAreaUseCaseTest {
-
+class AgregarContratoUseCaseTest {
     @InjectMocks
-    private AgregarAreaUseCase useCase;
+    private AgregarContratoUseCase useCase;
 
     @Mock
     private DomainEventRepository repository;
 
-    @Test
-    void agregarAreaHappyPass() {
 
+    @Test
+    void executeUseCase() {
         //arrange
         var instructorId = InstructorId.of("1");
-        var descripcion = new Descripcion("descripcion");
-        var command = new AgregarArea(instructorId, "area", descripcion);
+        var tipoDeContrato = new TipoDeContrato("tipo", "detalle");
+        var command = new AgregarContrato(instructorId, "contra", tipoDeContrato);
 
         when(repository.getEventsBy("1")).thenReturn(history());
         useCase.addRepository(repository);
@@ -47,24 +48,19 @@ class AgregarAreaUseCaseTest {
                 .orElseThrow()
                 .getDomainEvents();
 
-        //asserts
-
-        var event = (AreaAgregada) events.get(0);
+        //assert
+        var event = (ContratoAgregado) events.get(0);
         Assertions.assertEquals("1", event.aggregateRootId());
         Assertions.assertEquals(instructorId, event.getInstructorId());
 
-
-
     }
 
-
     private List<DomainEvent> history() {
-
         var instructorId = InstructorId.of("1");
-        var descripcion = new Descripcion("descripcion");
-        var event = new AreaAgregada("area",
-                descripcion,
-                instructorId);
+        var tipoDeContrato = new TipoDeContrato("tipo", "detalle");
+        var event = new ContratoAgregado(instructorId,
+                "contra",
+                tipoDeContrato);
 
         event.setAggregateRootId("xxx");
         return List.of(event);
