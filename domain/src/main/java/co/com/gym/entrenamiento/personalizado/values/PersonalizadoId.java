@@ -1,4 +1,4 @@
-package co.com.gym.entrenamiento.personalizado;
+package co.com.gym.entrenamiento.personalizado.values;
 
 import co.com.sofka.domain.generic.Identity;
 

@@ -6,6 +6,7 @@ import co.com.gym.entrenamiento.personalizado.entitys.Plan;
 import co.com.gym.entrenamiento.personalizado.entitys.TipoServicio;
 import co.com.gym.entrenamiento.personalizado.events.PersonalizadoCreado;
 import co.com.gym.entrenamiento.personalizado.values.Fecha;
+import co.com.gym.entrenamiento.personalizado.values.PersonalizadoId;
 import co.com.gym.entrenamiento.rutina.values.RutinaId;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
