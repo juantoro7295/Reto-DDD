@@ -1,4 +1,5 @@
 package co.com.gym.entrenamiento.personalizado.usecase;
+
 import co.com.gym.entrenamiento.personalizado.Personalizado;
 import co.com.gym.entrenamiento.personalizado.commands.AgregarInstructor;
 import co.com.sofka.business.generic.UseCase;
@@ -10,8 +11,10 @@ public class AgregarInstructorUseCase extends UseCase<RequestCommand<AgregarInst
     public void executeUseCase(RequestCommand<AgregarInstructor> agregarInstructorRequestCommand) {
         var command = agregarInstructorRequestCommand.getCommand();
         var personalizado = Personalizado.from(
-                command.getPersonalizadoId(),repository().getEventsBy(command.getPersonalizadoId().value())
+                command.getPersonalizadoId(), repository().getEventsBy(command.getPersonalizadoId().value())
         );
+        personalizado.agregarInstructor(command.getPersonalizadoId(), command.getNombre(), command.getApellido(),
+                command.getContrato(), command.getArea(), command.getEspecializacion());
         emit().onResponse(new ResponseEvents(personalizado.getUncommittedChanges()));
 
     }

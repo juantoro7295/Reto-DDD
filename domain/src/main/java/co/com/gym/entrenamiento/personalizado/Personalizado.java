@@ -8,8 +8,11 @@ import co.com.gym.entrenamiento.personalizado.entitys.Paciente;
 import co.com.gym.entrenamiento.personalizado.entitys.Plan;
 import co.com.gym.entrenamiento.personalizado.entitys.TipoServicio;
 import co.com.gym.entrenamiento.personalizado.events.InstructorAgregado;
+import co.com.gym.entrenamiento.personalizado.events.PacienteAgregado;
 import co.com.gym.entrenamiento.personalizado.events.PersonalizadoCreado;
+import co.com.gym.entrenamiento.personalizado.values.Edad;
 import co.com.gym.entrenamiento.personalizado.values.Fecha;
+import co.com.gym.entrenamiento.personalizado.values.Medida;
 import co.com.gym.entrenamiento.personalizado.values.PersonalizadoId;
 import co.com.gym.entrenamiento.rutina.values.RutinaId;
 import co.com.gym.generic.values.Apellido;
@@ -49,6 +52,18 @@ public class Personalizado extends AggregateEvent<PersonalizadoId> {
         var personalizado = new Personalizado(entityId);
         events.forEach(personalizado::applyEvent);
         return personalizado;
+    }
+
+    public void agregarInstructor(PersonalizadoId personalizadoId, Nombre nombre, Apellido apellido,
+                                  Contrato contrato, Area area, Especializacion especializacion) {
+        appendChange(new InstructorAgregado(personalizadoId, nombre, apellido, contrato, area, especializacion)).apply();
+
+    }
+
+    public void agregarPaciente(PersonalizadoId personalizadoId, Nombre nombre,
+                                Apellido apellido, Edad edad, Medida medida) {
+        appendChange(new PacienteAgregado(personalizadoId, nombre, apellido, edad, medida)).apply();
+
     }
 
     public InstructorId instructorId() {

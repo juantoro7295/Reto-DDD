@@ -24,6 +24,7 @@ import java.util.List;
 
 
 import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 class AgregarInstructorUseCaseTest {
     @InjectMocks
@@ -41,13 +42,13 @@ class AgregarInstructorUseCaseTest {
         var nombre = new Nombre("Juan");
         var apellido = new Apellido("Toro");
         var contratoId = ContratoId.of("con");
-        var contrato = new Contrato(contratoId,"contrato",
-                new TipoDeContrato("tipo1","detalles"));
+        var contrato = new Contrato(contratoId, "contrato",
+                new TipoDeContrato("tipo1", "detalles"));
         var areaId = AreaId.of("are");
-        var area = new Area(areaId,"nombreArea",new Descripcion("descripcion"));
+        var area = new Area(areaId, "nombreArea", new Descripcion("descripcion"));
         var especializacionId = EspecializacionId.of("esp");
-        var especializacion = new Especializacion(especializacionId,"especia",new Descripcion("descrip"));
-        var command = new AgregarInstructor(personalizadoId,nombre,apellido,contrato,area,especializacion);
+        var especializacion = new Especializacion(especializacionId, "especia", new Descripcion("descrip"));
+        var command = new AgregarInstructor(personalizadoId, nombre, apellido, contrato, area, especializacion);
 
         when(repository.getEventsBy("per")).thenReturn(history());
         useCase.addRepository(repository);
@@ -61,27 +62,23 @@ class AgregarInstructorUseCaseTest {
 
         //assert
 
-//        var event =(InstructorCreado)events.get(0);
+//        var event = (InstructorCreado) events.get(0);
 //        Assertions.assertEquals("juan", event.getNombre().value());
 
 
-
-
-
-
-
     }
-    private List<DomainEvent> history(){
-        var instructorId = InstructorId.of("per");
+
+    private List<DomainEvent> history() {
+        var personalizadoId = PersonalizadoId.of("per");
         var nombre1 = new Nombre("Juan");
         var apellido1 = new Apellido("Toro");
         var contratoId1 = ContratoId.of("con");
-        var contrato1 = new Contrato(contratoId1,"contrato",
-                new TipoDeContrato("tipo1","detalles"));
+        var contrato1 = new Contrato(contratoId1, "contrato",
+                new TipoDeContrato("tipo1", "detalles"));
         var areaId1 = AreaId.of("are");
-        var area1 = new Area(areaId1,"nombreArea",new Descripcion("descripcion"));
+        var area1 = new Area(areaId1, "nombreArea", new Descripcion("descripcion"));
         var especializacionId1 = EspecializacionId.of("esp");
-        var especializacion1 = new Especializacion(especializacionId1,"especia",new Descripcion("descrip"));
+        var especializacion1 = new Especializacion(especializacionId1, "especia", new Descripcion("descrip"));
         var event = new InstructorCreado(
                 nombre1,
                 apellido1,

@@ -49,7 +49,7 @@ public class Instructor extends AggregateEvent<InstructorId> {
     }
 
     public void agregarContrato(InstructorId instructorId, String nombreContrato, TipoDeContrato tipoDeContrato){
-        appendChange(new ContratoAgregado(instructorId,nombreContrato,tipoDeContrato));
+        appendChange(new ContratoAgregado(instructorId,nombreContrato,tipoDeContrato)).apply();
     }
     public void agregarEspecializacion(InstructorId instructorId, String especializacion, Descripcion descripcion){
         appendChange(new EspecializacionAgregada(instructorId,especializacion,descripcion)).apply();
