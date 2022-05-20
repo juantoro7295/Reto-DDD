@@ -1,17 +1,17 @@
 package co.com.gym.entrenamiento.rutina.commands;
 
-import co.com.gym.entrenamiento.rutina.values.EjercicioId;
+import co.com.gym.entrenamiento.rutina.values.RutinaId;
 import co.com.sofka.domain.generic.Command;
 
 public class EliminarEjercicio extends Command {
 
-    private final EjercicioId ejercicioId;
+    private final RutinaId rutinaId;
 
-    public EliminarEjercicio(EjercicioId ejercicioId) {
-        this.ejercicioId = ejercicioId;
+    public EliminarEjercicio(RutinaId rutinaId) {
+        this.rutinaId = rutinaId;
     }
 
-    public EjercicioId getEjercicioId() {
-        return ejercicioId;
+    public RutinaId getRutinaId() {
+        return rutinaId;
     }
 }

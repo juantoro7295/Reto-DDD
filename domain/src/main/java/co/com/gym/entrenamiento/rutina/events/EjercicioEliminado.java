@@ -1,18 +1,18 @@
 package co.com.gym.entrenamiento.rutina.events;
 
-import co.com.gym.entrenamiento.rutina.values.EjercicioId;
+import co.com.gym.entrenamiento.rutina.values.RutinaId;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class EjercicioEliminado extends DomainEvent {
 
-    private final EjercicioId ejercicioId;
+    private final RutinaId rutinaId;
 
-    public EjercicioEliminado(String type, EjercicioId ejercicioId) {
+    public EjercicioEliminado( RutinaId rutinaId) {
         super("co.com.gym.entrenamiento.EjercicioEliminado");
-        this.ejercicioId = ejercicioId;
+        this.rutinaId = rutinaId;
     }
 
-    public EjercicioId getEjercicioId() {
-        return ejercicioId;
+    public RutinaId getRutinaId() {
+        return rutinaId;
     }
 }

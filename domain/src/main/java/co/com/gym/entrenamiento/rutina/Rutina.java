@@ -3,10 +3,7 @@ package co.com.gym.entrenamiento.rutina;
 import co.com.gym.entrenamiento.rutina.entitys.Ejercicio;
 import co.com.gym.entrenamiento.rutina.entitys.Material;
 import co.com.gym.entrenamiento.rutina.entitys.ZonaDelCuerpo;
-import co.com.gym.entrenamiento.rutina.events.EjercicioAgregado;
-import co.com.gym.entrenamiento.rutina.events.MaterialAgregado;
-import co.com.gym.entrenamiento.rutina.events.RutinaCreada;
-import co.com.gym.entrenamiento.rutina.events.ZonaDelCuerpoAgregada;
+import co.com.gym.entrenamiento.rutina.events.*;
 import co.com.gym.entrenamiento.rutina.values.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -49,6 +46,10 @@ public class Rutina extends AggregateEvent<RutinaId> {
     public void agregarZonaDelCuerpo(RutinaId rutinaId, Calentamiento calentamiento,
                                      ZonaCuerpo zonaCuerpo) {
         appendChange(new ZonaDelCuerpoAgregada(rutinaId, calentamiento, zonaCuerpo)).apply();
+
+    }
+    public void eliminarEjericio(RutinaId rutinaId){
+        appendChange(new EjercicioEliminado(rutinaId)).apply();
 
     }
 
