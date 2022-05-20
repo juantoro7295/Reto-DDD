@@ -6,6 +6,7 @@ import co.com.gym.entrenamiento.rutina.entitys.ZonaDelCuerpo;
 import co.com.gym.entrenamiento.rutina.events.EjercicioCreado;
 import co.com.gym.entrenamiento.rutina.events.MaterialAgregado;
 import co.com.gym.entrenamiento.rutina.events.RutinaCreada;
+import co.com.gym.entrenamiento.rutina.events.ZonaDelCuerpoAgregada;
 import co.com.gym.entrenamiento.rutina.values.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -36,12 +37,19 @@ public class Rutina extends AggregateEvent<RutinaId> {
         return rutina;
     }
 
-    public void agregarEjericio(RutinaId rutinaId, String nombreEjercicio, DetalleEjercicio detalleEjercicio, Intensidad intensidad) {
+    public void agregarEjericio(RutinaId rutinaId, String nombreEjercicio, DetalleEjercicio detalleEjercicio,
+                                Intensidad intensidad) {
         appendChange(new EjercicioCreado(rutinaId, nombreEjercicio, detalleEjercicio, intensidad)).apply();
     }
 
     public void agregarMaterial(RutinaId rutinaId, String nombreMaterial, Detalle detalle) {
-        appendChange(new MaterialAgregado(rutinaId,nombreMaterial,detalle)).apply();
+        appendChange(new MaterialAgregado(rutinaId, nombreMaterial, detalle)).apply();
+    }
+
+    public void agregarZonaDelCuerpo(RutinaId rutinaId, Calentamiento calentamiento,
+                                     ZonaCuerpo zonaCuerpo) {
+        appendChange(new ZonaDelCuerpoAgregada(rutinaId, calentamiento, zonaCuerpo)).apply();
+
     }
 
     public String nombreRutina() {
