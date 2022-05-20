@@ -3,7 +3,11 @@ package co.com.gym.entrenamiento.rutina;
 import co.com.gym.entrenamiento.rutina.entitys.Ejercicio;
 import co.com.gym.entrenamiento.rutina.entitys.Material;
 import co.com.gym.entrenamiento.rutina.entitys.ZonaDelCuerpo;
+import co.com.gym.entrenamiento.rutina.events.EjercicioCreado;
 import co.com.gym.entrenamiento.rutina.events.RutinaCreada;
+import co.com.gym.entrenamiento.rutina.values.DetalleEjercicio;
+import co.com.gym.entrenamiento.rutina.values.EjercicioId;
+import co.com.gym.entrenamiento.rutina.values.Intensidad;
 import co.com.gym.entrenamiento.rutina.values.RutinaId;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -32,6 +36,10 @@ public class Rutina extends AggregateEvent<RutinaId> {
         var rutina = new Rutina(rutinaId);
         events.forEach(rutina::applyEvent);
         return rutina;
+    }
+
+    public void agregarEjericio(RutinaId rutinaId,String nombreEjercicio, DetalleEjercicio detalleEjercicio, Intensidad intensidad){
+        appendChange(new EjercicioCreado(rutinaId,nombreEjercicio,detalleEjercicio,intensidad)).apply();
     }
 
     public String nombreRutina() {
