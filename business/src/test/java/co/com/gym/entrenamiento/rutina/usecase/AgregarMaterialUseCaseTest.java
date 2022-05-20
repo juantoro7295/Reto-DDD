@@ -1,11 +1,8 @@
 package co.com.gym.entrenamiento.rutina.usecase;
 
-import co.com.gym.entrenamiento.personalizado.usecase.AgregarInstructorUseCase;
-import co.com.gym.entrenamiento.rutina.Rutina;
-import co.com.gym.entrenamiento.rutina.commands.AgregarEjercicio;
-import co.com.gym.entrenamiento.rutina.events.EjercicioCreado;
-import co.com.gym.entrenamiento.rutina.values.DetalleEjercicio;
-import co.com.gym.entrenamiento.rutina.values.Intensidad;
+import co.com.gym.entrenamiento.rutina.commands.AgregarMaterial;
+import co.com.gym.entrenamiento.rutina.events.MaterialAgregado;
+import co.com.gym.entrenamiento.rutina.values.Detalle;
 import co.com.gym.entrenamiento.rutina.values.RutinaId;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -21,36 +18,30 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class AgregarEjercicioUseCaseTest {
+class AgregarMaterialUseCaseTest {
 
     @InjectMocks
-    private AgregarEjercicioUseCase useCase;
+    private AgregarMaterialUseCase useCase;
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
-    void agregarEjericicioHappyPass() {
+    void AgregarMaterialUseCaseTestHappyPass() {
         //arrange
         var rutinaId = RutinaId.of("1");
-        var detalleEjercicio = new DetalleEjercicio("5", "4", "60");
-        var intensidad = new Intensidad("10", "5");
-        var command = new AgregarEjercicio(rutinaId, "ejercicio1", detalleEjercicio, intensidad);
-
-        when(repository.getEventsBy("1")).thenReturn(history());
-        useCase.addRepository(repository);
-        //act
+        var detalle = new Detalle("detalle", 5D);
+        var command = new AgregarMaterial(rutinaId, "nombreMaterial", detalle);
+        //assert
         var events = UseCaseHandler.getInstance()
                 .setIdentifyExecutor(command.getRutinaId().value())
                 .syncExecutor(useCase, new RequestCommand<>(command))
                 .orElseThrow()
                 .getDomainEvents();
-
         //assert
-        var event = (EjercicioCreado) events.get(0);
+        var event = (MaterialAgregado) events.get(0);
         Assertions.assertEquals("1", event.aggregateRootId());
         Assertions.assertEquals(rutinaId, event.getRutinaId());
 
@@ -59,13 +50,11 @@ class AgregarEjercicioUseCaseTest {
 
     private List<DomainEvent> history() {
         var rutinaId = RutinaId.of("1");
-        var detalleEjercicio = new DetalleEjercicio("5", "4", "60");
-        var intensidad = new Intensidad("10", "5");
-        var event = new EjercicioCreado(rutinaId,
-                "ejercicio1",
-                detalleEjercicio,
-                intensidad);
+        var detalle = new Detalle("detalle", 5D);
+        var event = new MaterialAgregado(rutinaId, "nombreMaterial", detalle);
+
         event.setAggregateRootId("xxx");
         return List.of(event);
+
     }
 }

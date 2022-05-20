@@ -4,11 +4,9 @@ import co.com.gym.entrenamiento.rutina.entitys.Ejercicio;
 import co.com.gym.entrenamiento.rutina.entitys.Material;
 import co.com.gym.entrenamiento.rutina.entitys.ZonaDelCuerpo;
 import co.com.gym.entrenamiento.rutina.events.EjercicioCreado;
+import co.com.gym.entrenamiento.rutina.events.MaterialAgregado;
 import co.com.gym.entrenamiento.rutina.events.RutinaCreada;
-import co.com.gym.entrenamiento.rutina.values.DetalleEjercicio;
-import co.com.gym.entrenamiento.rutina.values.EjercicioId;
-import co.com.gym.entrenamiento.rutina.values.Intensidad;
-import co.com.gym.entrenamiento.rutina.values.RutinaId;
+import co.com.gym.entrenamiento.rutina.values.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 
@@ -23,8 +21,8 @@ public class Rutina extends AggregateEvent<RutinaId> {
 
     public Rutina(RutinaId entityId, String nombreRutina, Ejercicio ejercicio, ZonaDelCuerpo zonaDelCuerpo, Material material) {
         super(entityId);
-       appendChange(new RutinaCreada(nombreRutina,ejercicio,zonaDelCuerpo,material)).apply();
-       subscribe(new RutinaEventChange(this));
+        appendChange(new RutinaCreada(nombreRutina, ejercicio, zonaDelCuerpo, material)).apply();
+        subscribe(new RutinaEventChange(this));
     }
 
     public Rutina(RutinaId entityId) {
@@ -32,14 +30,18 @@ public class Rutina extends AggregateEvent<RutinaId> {
         subscribe(new RutinaEventChange(this));
     }
 
-    public static Rutina from(RutinaId rutinaId, List<DomainEvent> events){
+    public static Rutina from(RutinaId rutinaId, List<DomainEvent> events) {
         var rutina = new Rutina(rutinaId);
         events.forEach(rutina::applyEvent);
         return rutina;
     }
 
-    public void agregarEjericio(RutinaId rutinaId,String nombreEjercicio, DetalleEjercicio detalleEjercicio, Intensidad intensidad){
-        appendChange(new EjercicioCreado(rutinaId,nombreEjercicio,detalleEjercicio,intensidad)).apply();
+    public void agregarEjericio(RutinaId rutinaId, String nombreEjercicio, DetalleEjercicio detalleEjercicio, Intensidad intensidad) {
+        appendChange(new EjercicioCreado(rutinaId, nombreEjercicio, detalleEjercicio, intensidad)).apply();
+    }
+
+    public void agregarMaterial(RutinaId rutinaId, String nombreMaterial, Detalle detalle) {
+        appendChange(new MaterialAgregado(rutinaId,nombreMaterial,detalle)).apply();
     }
 
     public String nombreRutina() {

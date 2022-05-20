@@ -1,7 +1,6 @@
 package co.com.gym.entrenamiento.rutina.events;
 
 import co.com.gym.entrenamiento.rutina.values.DetalleEjercicio;
-import co.com.gym.entrenamiento.rutina.values.EjercicioId;
 import co.com.gym.entrenamiento.rutina.values.Intensidad;
 import co.com.gym.entrenamiento.rutina.values.RutinaId;
 import co.com.sofka.domain.generic.DomainEvent;
