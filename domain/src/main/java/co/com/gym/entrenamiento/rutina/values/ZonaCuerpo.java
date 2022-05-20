@@ -4,11 +4,11 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class ZonaDelCuerpo implements ValueObject<String> {
+public class ZonaCuerpo implements ValueObject<String> {
     private final String zonaDelCuerpo;
     private final String caracteritica;
 
-    public ZonaDelCuerpo(String zonaDelCuerpo, String caracteritica) {
+    public ZonaCuerpo(String zonaDelCuerpo, String caracteritica) {
         this.zonaDelCuerpo = Objects.requireNonNull(zonaDelCuerpo);
         if(this.zonaDelCuerpo.isBlank()){
             throw new IllegalArgumentException("la ZonaDelCuerpo no puede estar vacia");
