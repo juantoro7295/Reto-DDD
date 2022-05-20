@@ -3,9 +3,11 @@ package co.com.gym.entrenamiento.instructor;
 import co.com.gym.entrenamiento.instructor.entitys.Area;
 import co.com.gym.entrenamiento.instructor.entitys.Contrato;
 import co.com.gym.entrenamiento.instructor.entitys.Especializacion;
+import co.com.gym.entrenamiento.instructor.events.AreaAgregada;
 import co.com.gym.entrenamiento.instructor.events.InstructorCreado;
 import co.com.gym.entrenamiento.instructor.values.InstructorId;
 import co.com.gym.generic.values.Apellido;
+import co.com.gym.generic.values.Descripcion;
 import co.com.gym.generic.values.Nombre;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -24,7 +26,7 @@ public class Instructor extends AggregateEvent<InstructorId> {
     public Instructor(InstructorId entityId, Nombre nombre, Apellido apellido, Contrato contrato,
                       Area area, Especializacion especializacion) {
         super(entityId);
-        appendChange(new InstructorCreado(nombre, apellido,contrato,area,especializacion)).apply();
+        appendChange(new InstructorCreado(nombre, apellido, contrato, area, especializacion)).apply();
         subscribe(new InstructorEventChange(this));
     }
 
@@ -33,10 +35,14 @@ public class Instructor extends AggregateEvent<InstructorId> {
         subscribe(new InstructorEventChange(this));
     }
 
-    public static Instructor from(InstructorId instructorId, List<DomainEvent> events){
+    public static Instructor from(InstructorId instructorId, List<DomainEvent> events) {
         var instructor = new Instructor(instructorId);
         events.forEach(instructor::applyEvent);
         return instructor;
+    }
+
+    public void agregarArea(String nombreArea, Descripcion descripcion, InstructorId instructorId) {
+        appendChange(new AreaAgregada(nombreArea, descripcion, instructorId)).apply();
     }
 
     public Nombre nombre() {

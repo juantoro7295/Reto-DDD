@@ -1,7 +1,7 @@
 package co.com.gym.entrenamiento.rutina.usecase;
 
 import co.com.gym.entrenamiento.rutina.commands.AgregarEjercicio;
-import co.com.gym.entrenamiento.rutina.events.EjercicioCreado;
+import co.com.gym.entrenamiento.rutina.events.EjercicioAgregado;
 import co.com.gym.entrenamiento.rutina.values.DetalleEjercicio;
 import co.com.gym.entrenamiento.rutina.values.Intensidad;
 import co.com.gym.entrenamiento.rutina.values.RutinaId;
@@ -47,7 +47,7 @@ class AgregarEjercicioUseCaseTest {
                 .getDomainEvents();
 
         //assert
-        var event = (EjercicioCreado) events.get(0);
+        var event = (EjercicioAgregado) events.get(0);
         Assertions.assertEquals("1", event.aggregateRootId());
         Assertions.assertEquals(rutinaId, event.getRutinaId());
 
@@ -58,7 +58,7 @@ class AgregarEjercicioUseCaseTest {
         var rutinaId = RutinaId.of("1");
         var detalleEjercicio = new DetalleEjercicio("5", "4", "60");
         var intensidad = new Intensidad("10", "5");
-        var event = new EjercicioCreado(rutinaId,
+        var event = new EjercicioAgregado(rutinaId,
                 "ejercicio1",
                 detalleEjercicio,
                 intensidad);

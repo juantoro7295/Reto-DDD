@@ -3,7 +3,7 @@ package co.com.gym.entrenamiento.rutina;
 import co.com.gym.entrenamiento.rutina.entitys.Ejercicio;
 import co.com.gym.entrenamiento.rutina.entitys.Material;
 import co.com.gym.entrenamiento.rutina.entitys.ZonaDelCuerpo;
-import co.com.gym.entrenamiento.rutina.events.EjercicioCreado;
+import co.com.gym.entrenamiento.rutina.events.EjercicioAgregado;
 import co.com.gym.entrenamiento.rutina.events.MaterialAgregado;
 import co.com.gym.entrenamiento.rutina.events.RutinaCreada;
 import co.com.gym.entrenamiento.rutina.events.ZonaDelCuerpoAgregada;
@@ -39,7 +39,7 @@ public class Rutina extends AggregateEvent<RutinaId> {
 
     public void agregarEjericio(RutinaId rutinaId, String nombreEjercicio, DetalleEjercicio detalleEjercicio,
                                 Intensidad intensidad) {
-        appendChange(new EjercicioCreado(rutinaId, nombreEjercicio, detalleEjercicio, intensidad)).apply();
+        appendChange(new EjercicioAgregado(rutinaId, nombreEjercicio, detalleEjercicio, intensidad)).apply();
     }
 
     public void agregarMaterial(RutinaId rutinaId, String nombreMaterial, Detalle detalle) {
