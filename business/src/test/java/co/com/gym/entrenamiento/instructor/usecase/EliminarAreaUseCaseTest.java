@@ -45,7 +45,7 @@ class EliminarAreaUseCaseTest {
 
         //assert
         var event = (AreaEliminada) events.get(0);
-        Assertions.assertEquals("1",event.aggregateRootId());
+        Assertions.assertEquals("1", event.aggregateRootId());
         Assertions.assertEquals(instructorId, event.instructorId());
     }
 

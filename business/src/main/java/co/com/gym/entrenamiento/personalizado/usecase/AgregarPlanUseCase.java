@@ -12,7 +12,7 @@ public class AgregarPlanUseCase extends UseCase<RequestCommand<AgregarPlan>, Res
         var command = agregarPlanRequestCommand.getCommand();
         var personalizado = Personalizado.from(command.getPersonalizadoId(),
                 repository().getEventsBy(command.getPersonalizadoId().value()));
-        personalizado.agregarPlan(command.getPersonalizadoId(),command.getNombrePlan(),command.getDescripcion());
+        personalizado.agregarPlan(command.getPersonalizadoId(), command.getNombrePlan(), command.getDescripcion());
 
         emit().onResponse(new ResponseEvents(personalizado.getUncommittedChanges()));
 

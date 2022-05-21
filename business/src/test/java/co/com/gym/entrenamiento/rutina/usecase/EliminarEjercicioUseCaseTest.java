@@ -48,7 +48,7 @@ class EliminarEjercicioUseCaseTest {
         //assert
         var event = (EjercicioEliminado) events.get(0);
         Assertions.assertEquals("1", event.aggregateRootId());
-        Assertions.assertEquals(rutinaId,event.getRutinaId());
+        Assertions.assertEquals(rutinaId, event.getRutinaId());
 
     }
 

@@ -11,15 +11,15 @@ public class Medida implements ValueObject<String> {
 
     public Medida(String medida, Double altura, Double peso) {
         this.medida = Objects.requireNonNull(medida);
-        if(this.medida.isBlank()){
+        if (this.medida.isBlank()) {
             throw new IllegalArgumentException("la medida no puede estar vacia");
         }
         this.altura = Objects.requireNonNull(altura);
-        if(this.altura.isNaN()){
+        if (this.altura.isNaN()) {
             throw new IllegalArgumentException("la altura no puede estar vacia");
         }
         this.peso = Objects.requireNonNull(peso);
-        if(this.peso.isNaN()){
+        if (this.peso.isNaN()) {
             throw new IllegalArgumentException("el peso no puede estar vacio");
         }
     }

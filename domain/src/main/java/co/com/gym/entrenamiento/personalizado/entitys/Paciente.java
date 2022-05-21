@@ -6,6 +6,7 @@ import co.com.gym.entrenamiento.personalizado.values.PacienteId;
 import co.com.gym.generic.values.Apellido;
 import co.com.gym.generic.values.Nombre;
 import co.com.sofka.domain.generic.Entity;
+
 /**
  * Entidad Paciente
  *
@@ -26,6 +27,7 @@ public class Paciente extends Entity<PacienteId> {
 
     /**
      * Constructor paciente
+     *
      * @param entityId
      */
 
@@ -35,6 +37,7 @@ public class Paciente extends Entity<PacienteId> {
 
     /**
      * Constructor Paciente
+     *
      * @param entityId
      * @param nombre
      * @param apellido
@@ -52,6 +55,7 @@ public class Paciente extends Entity<PacienteId> {
 
     /**
      * crear paciente
+     *
      * @param nombre
      * @param apellido
      * @param edad
@@ -59,11 +63,11 @@ public class Paciente extends Entity<PacienteId> {
      * @param altura
      * @param peso
      */
-    public void crearPaciente(String nombre, String apellido, Integer edad,String medida, Double altura, Double peso ){
+    public void crearPaciente(String nombre, String apellido, Integer edad, String medida, Double altura, Double peso) {
         this.nombre = new Nombre(nombre);
         this.apellido = new Apellido(apellido);
         this.edad = new Edad(edad);
-        this.medida = new Medida(medida,altura,peso);
+        this.medida = new Medida(medida, altura, peso);
 
     }
 }

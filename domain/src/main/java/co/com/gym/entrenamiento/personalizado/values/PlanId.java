@@ -8,7 +8,7 @@ public class PlanId extends Identity {
         super(id);
     }
 
-    public static PlanId of(String id){
+    public static PlanId of(String id) {
         return new PlanId(id);
     }
 }

@@ -7,7 +7,7 @@ public class AreaEliminada extends DomainEvent {
 
     private final InstructorId intructorId;
 
-    public AreaEliminada( InstructorId intructorId) {
+    public AreaEliminada(InstructorId intructorId) {
         super("co.com.gym.entrenamiento.AreaEliminada");
         this.intructorId = intructorId;
     }

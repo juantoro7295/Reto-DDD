@@ -8,7 +8,7 @@ public class MaterialId extends Identity {
         super(id);
     }
 
-    public static  MaterialId of(String id){
+    public static MaterialId of(String id) {
         return new MaterialId(id);
     }
 }

@@ -10,6 +10,7 @@ public class RutinaCreada extends DomainEvent {
     private final Ejercicio ejercicio;
     private final ZonaDelCuerpo zonaDelCuerpo;
     private final Material material;
+
     public RutinaCreada(String nombreRutina, Ejercicio ejercicio, ZonaDelCuerpo zonaDelCuerpo, Material material) {
         super("co.com.gym.entrenamieto.RutinaCreada");
         this.nombreRutina = nombreRutina;

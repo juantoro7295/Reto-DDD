@@ -10,7 +10,7 @@ public class MaterialAgregado extends DomainEvent {
     private final String nombreMaterial;
     private final Detalle detalle;
 
-    public MaterialAgregado( RutinaId rutinaId, String nombreMaterial, Detalle detalle) {
+    public MaterialAgregado(RutinaId rutinaId, String nombreMaterial, Detalle detalle) {
         super("co.com.gym.entrenamiento.MaterialAgregado");
         this.rutinaId = rutinaId;
         this.nombreMaterial = nombreMaterial;

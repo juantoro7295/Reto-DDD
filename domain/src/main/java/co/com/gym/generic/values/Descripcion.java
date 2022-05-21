@@ -9,7 +9,7 @@ public class Descripcion implements ValueObject<String> {
 
     public Descripcion(String descripcion) {
         this.descripcion = Objects.requireNonNull(descripcion);
-        if(this.descripcion.isBlank()){
+        if (this.descripcion.isBlank()) {
             throw new IllegalArgumentException("La descripcion no puede estar vacia");
         }
 

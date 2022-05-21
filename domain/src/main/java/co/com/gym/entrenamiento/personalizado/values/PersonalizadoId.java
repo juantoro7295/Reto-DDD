@@ -8,7 +8,7 @@ public class PersonalizadoId extends Identity {
         super(id);
     }
 
-    public static PersonalizadoId of(String id){
+    public static PersonalizadoId of(String id) {
         return new PersonalizadoId(id);
     }
 

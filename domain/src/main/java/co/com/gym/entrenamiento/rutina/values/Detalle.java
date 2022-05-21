@@ -10,7 +10,7 @@ public class Detalle implements ValueObject<String> {
 
     public Detalle(String detalle, Double peso) {
         this.detalle = Objects.requireNonNull(detalle);
-        if(this.detalle.isBlank()){
+        if (this.detalle.isBlank()) {
             throw new IllegalArgumentException("El detalle no puede estar vacio");
         }
         this.peso = Objects.requireNonNull(peso);

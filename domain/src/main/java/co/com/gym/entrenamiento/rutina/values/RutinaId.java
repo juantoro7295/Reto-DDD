@@ -7,7 +7,7 @@ public class RutinaId extends Identity {
         super(id);
     }
 
-    public static RutinaId of(String id){
+    public static RutinaId of(String id) {
         return new RutinaId(id);
     }
 }

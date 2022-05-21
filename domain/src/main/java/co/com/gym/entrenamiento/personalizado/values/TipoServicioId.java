@@ -8,7 +8,7 @@ public class TipoServicioId extends Identity {
         super(id);
     }
 
-    public static TipoServicioId of(String id){
+    public static TipoServicioId of(String id) {
         return new TipoServicioId(id);
     }
 }

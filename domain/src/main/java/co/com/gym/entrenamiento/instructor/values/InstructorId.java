@@ -8,11 +8,11 @@ public class InstructorId extends Identity {
         super(id);
     }
 
-    public InstructorId(){
+    public InstructorId() {
 
     }
 
-    public static InstructorId of(String id){
+    public static InstructorId of(String id) {
         return new InstructorId(id);
     }
 

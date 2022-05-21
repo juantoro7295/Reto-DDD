@@ -7,11 +7,11 @@ public class ContratoId extends Identity {
         super(value);
     }
 
-    public ContratoId(){
+    public ContratoId() {
 
     }
 
-    public static ContratoId of(String value){
+    public static ContratoId of(String value) {
         return new ContratoId(value);
     }
 

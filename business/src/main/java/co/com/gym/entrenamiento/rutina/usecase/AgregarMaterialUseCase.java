@@ -12,7 +12,7 @@ public class AgregarMaterialUseCase extends UseCase<RequestCommand<AgregarMateri
         var command = agregarMaterialRequestCommand.getCommand();
         var rutina = Rutina.from(command.getRutinaId(), repository().getEventsBy(command.getRutinaId().value())
         );
-        rutina.agregarMaterial(command.getRutinaId(),command.getNombreMaterial(),command.getDetalle());
+        rutina.agregarMaterial(command.getRutinaId(), command.getNombreMaterial(), command.getDetalle());
 
         emit().onResponse(new ResponseEvents(rutina.getUncommittedChanges()));
     }

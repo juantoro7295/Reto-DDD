@@ -12,7 +12,7 @@ public class ZonaDelCuerpoAgregada extends DomainEvent {
     private final Calentamiento calentamiento;
     private final ZonaCuerpo zonaCuerpo;
 
-    public ZonaDelCuerpoAgregada( RutinaId rutinaId, Calentamiento calentamiento,
+    public ZonaDelCuerpoAgregada(RutinaId rutinaId, Calentamiento calentamiento,
                                  ZonaCuerpo zonaCuerpo) {
         super("co.com.gym.entrenamiento.ZonaDelCuerpoAgregada");
         this.rutinaId = rutinaId;

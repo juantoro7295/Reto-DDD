@@ -8,7 +8,7 @@ public class ZonaDeLCuerpoId extends Identity {
         super(id);
     }
 
-    public static ZonaDeLCuerpoId of(String id){
+    public static ZonaDeLCuerpoId of(String id) {
         return new ZonaDeLCuerpoId(id);
     }
 }

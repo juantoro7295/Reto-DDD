@@ -42,7 +42,7 @@ class ActualizarPersonalizadoUseCaseTest {
 
         //assert
         var personalizadoActualizado = (PersonalizadoActualizado) events.get(0);
-        Assertions.assertEquals("1",personalizadoActualizado.getPersonalizadoId().value());
+        Assertions.assertEquals("1", personalizadoActualizado.getPersonalizadoId().value());
 
     }
 

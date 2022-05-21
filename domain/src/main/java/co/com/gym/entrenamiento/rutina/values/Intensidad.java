@@ -10,11 +10,11 @@ public class Intensidad implements ValueObject<String> {
 
     public Intensidad(String progresion, String frecuencia) {
         this.progresion = Objects.requireNonNull(progresion);
-        if(this.progresion.isBlank()){
+        if (this.progresion.isBlank()) {
             throw new IllegalArgumentException("la progresion no puede estar vacia");
         }
         this.frecuencia = Objects.requireNonNull(frecuencia);
-        if(this.frecuencia.isBlank()){
+        if (this.frecuencia.isBlank()) {
             throw new IllegalArgumentException("la frecuencia no puede estar vacia");
         }
     }

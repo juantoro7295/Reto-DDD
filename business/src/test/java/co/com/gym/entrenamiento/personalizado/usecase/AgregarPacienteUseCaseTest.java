@@ -58,9 +58,8 @@ class AgregarPacienteUseCaseTest {
         var event = (PacienteAgregado) events.get(0);
         Assertions.assertEquals("1", event.aggregateRootId());
         Assertions.assertEquals(personalizadoId, event.getPersonalizadoId());
-        Assertions.assertEquals(nombre,event.getNombre());
+        Assertions.assertEquals(nombre, event.getNombre());
         Assertions.assertEquals(edad, event.getEdad());
-
 
 
     }

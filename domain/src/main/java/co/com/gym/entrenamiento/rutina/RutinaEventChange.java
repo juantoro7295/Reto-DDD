@@ -5,7 +5,7 @@ import co.com.sofka.domain.generic.EventChange;
 
 public class RutinaEventChange extends EventChange {
     public RutinaEventChange(Rutina rutina) {
-        apply((RutinaCreada event)->{
+        apply((RutinaCreada event) -> {
             rutina.nombreRutina = event.getNombreRutina();
             rutina.ejercicio = event.getEjercicio();
             rutina.zonaDelCuerpo = event.getZonaDelCuerpo();

@@ -3,6 +3,7 @@ package co.com.gym.entrenamiento.instructor.entitys;
 import co.com.gym.entrenamiento.instructor.values.AreaId;
 import co.com.gym.generic.values.Descripcion;
 import co.com.sofka.domain.generic.Entity;
+
 /**
  * Entidad Area
  *
@@ -20,6 +21,7 @@ public class Area extends Entity<AreaId> {
 
     /**
      * Constructor Area
+     *
      * @param entityId
      */
 
@@ -29,6 +31,7 @@ public class Area extends Entity<AreaId> {
 
     /**
      * Constructor Area
+     *
      * @param entityId
      * @param nombreArea
      * @param descripcion
@@ -41,10 +44,11 @@ public class Area extends Entity<AreaId> {
 
     /**
      * crear Area
+     *
      * @param nombreArea
      * @param descripcion
      */
-    public void crearArea(String nombreArea, String descripcion){
+    public void crearArea(String nombreArea, String descripcion) {
         this.nombreArea = nombreArea;
         this.descripcion = new Descripcion(descripcion);
     }

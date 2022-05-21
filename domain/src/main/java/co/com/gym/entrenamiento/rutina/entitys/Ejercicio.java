@@ -4,6 +4,7 @@ import co.com.gym.entrenamiento.rutina.values.DetalleEjercicio;
 import co.com.gym.entrenamiento.rutina.values.EjercicioId;
 import co.com.gym.entrenamiento.rutina.values.Intensidad;
 import co.com.sofka.domain.generic.Entity;
+
 /**
  * Entidad Ejercicio
  *
@@ -21,6 +22,7 @@ public class Ejercicio extends Entity<EjercicioId> {
 
     /**
      * Constructor Ejericicio
+     *
      * @param entityId
      */
 
@@ -30,6 +32,7 @@ public class Ejercicio extends Entity<EjercicioId> {
 
     /**
      * Constructor Ejercicio
+     *
      * @param entityId
      * @param nombreEjercicio
      * @param detalleEjercicio
@@ -45,6 +48,7 @@ public class Ejercicio extends Entity<EjercicioId> {
 
     /**
      * crear ejercicio
+     *
      * @param nombreEjercicio
      * @param repeticiones
      * @param series

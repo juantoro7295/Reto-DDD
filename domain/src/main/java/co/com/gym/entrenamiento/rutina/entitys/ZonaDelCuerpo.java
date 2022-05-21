@@ -4,6 +4,7 @@ import co.com.gym.entrenamiento.rutina.values.Calentamiento;
 import co.com.gym.entrenamiento.rutina.values.ZonaCuerpo;
 import co.com.gym.entrenamiento.rutina.values.ZonaDeLCuerpoId;
 import co.com.sofka.domain.generic.Entity;
+
 /**
  * Entidad ZonaDelCuerpo
  *
@@ -22,6 +23,7 @@ public class ZonaDelCuerpo extends Entity<ZonaDeLCuerpoId> {
 
     /**
      * Constructor ZonaDelCuerpo
+     *
      * @param entityId
      */
     public ZonaDelCuerpo(ZonaDeLCuerpoId entityId) {
@@ -30,6 +32,7 @@ public class ZonaDelCuerpo extends Entity<ZonaDeLCuerpoId> {
 
     /**
      * Constructor ZonaDelCuerpo
+     *
      * @param entityId
      * @param calentamiento
      * @param zonaCuerpo
@@ -42,6 +45,7 @@ public class ZonaDelCuerpo extends Entity<ZonaDeLCuerpoId> {
 
     /**
      * crear Zona del Cuerpo
+     *
      * @param tipoDeCalentamiento
      * @param tiempo
      * @param zonaDelCuerpo

@@ -9,7 +9,7 @@ public class Nombre implements ValueObject<String> {
 
     public Nombre(String nombre) {
         this.nombre = Objects.requireNonNull(nombre);
-        if(this.nombre.isBlank()){
+        if (this.nombre.isBlank()) {
             throw new IllegalArgumentException("El nombre no puede estar vacio");
         }
     }

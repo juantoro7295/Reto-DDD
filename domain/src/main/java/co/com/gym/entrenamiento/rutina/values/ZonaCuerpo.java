@@ -10,11 +10,11 @@ public class ZonaCuerpo implements ValueObject<String> {
 
     public ZonaCuerpo(String zonaDelCuerpo, String caracteritica) {
         this.zonaDelCuerpo = Objects.requireNonNull(zonaDelCuerpo);
-        if(this.zonaDelCuerpo.isBlank()){
+        if (this.zonaDelCuerpo.isBlank()) {
             throw new IllegalArgumentException("la ZonaDelCuerpo no puede estar vacia");
         }
         this.caracteritica = Objects.requireNonNull(caracteritica);
-        if(this.caracteritica.isBlank()){
+        if (this.caracteritica.isBlank()) {
             throw new IllegalArgumentException("la caracteristica no puede estar vacia");
         }
     }

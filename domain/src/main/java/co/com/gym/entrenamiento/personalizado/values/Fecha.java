@@ -32,6 +32,7 @@ public class Fecha implements ValueObject<Fecha.Pros> {
 
     public interface Pros {
         LocalDateTime hora();
+
         LocalDate dia();
     }
 }

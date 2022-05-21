@@ -44,7 +44,7 @@ class ActualizarRutinaUseCaseTest {
 
         //assert
         var rutinaActualizada = (RutinaActualizada) events.get(0);
-        Assertions.assertEquals("1",rutinaActualizada.getRutinaId().value());
+        Assertions.assertEquals("1", rutinaActualizada.getRutinaId().value());
 
 
     }

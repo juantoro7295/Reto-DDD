@@ -54,7 +54,6 @@ class AgregarAreaUseCaseTest {
         Assertions.assertEquals(instructorId, event.getInstructorId());
 
 
-
     }
 
 

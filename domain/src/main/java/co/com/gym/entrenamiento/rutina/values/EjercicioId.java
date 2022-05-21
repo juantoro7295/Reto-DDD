@@ -7,7 +7,7 @@ public class EjercicioId extends Identity {
         super(id);
     }
 
-    public static EjercicioId of(String id){
+    public static EjercicioId of(String id) {
         return new EjercicioId(id);
     }
 }

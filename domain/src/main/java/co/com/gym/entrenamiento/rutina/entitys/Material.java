@@ -3,6 +3,7 @@ package co.com.gym.entrenamiento.rutina.entitys;
 import co.com.gym.entrenamiento.rutina.values.Detalle;
 import co.com.gym.entrenamiento.rutina.values.MaterialId;
 import co.com.sofka.domain.generic.Entity;
+
 /**
  * Entidad Material
  *
@@ -21,6 +22,7 @@ public class Material extends Entity<MaterialId> {
 
     /**
      * Constructor Material
+     *
      * @param entityId
      */
 
@@ -30,6 +32,7 @@ public class Material extends Entity<MaterialId> {
 
     /**
      * Constructor Material
+     *
      * @param entityId
      * @param nombreMaterial
      * @param detalle
@@ -43,13 +46,14 @@ public class Material extends Entity<MaterialId> {
 
     /**
      * crear material
+     *
      * @param nombreMaterial
      * @param detalle
      * @param peso
      */
 
-    public void crearMaterial(String nombreMaterial, String detalle, Double peso){
+    public void crearMaterial(String nombreMaterial, String detalle, Double peso) {
         this.nombreMaterial = nombreMaterial;
-        this.detalle = new Detalle(detalle,peso);
+        this.detalle = new Detalle(detalle, peso);
     }
 }

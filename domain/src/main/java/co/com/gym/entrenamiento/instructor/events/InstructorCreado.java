@@ -16,7 +16,6 @@ public class InstructorCreado extends DomainEvent {
     private final Especializacion especializacion;
 
 
-
     public InstructorCreado(Nombre nombre, Apellido apellido, Contrato contrato, Area area, Especializacion especializacion) {
         super("co.com.gym.entrenamiento.InstructorCreado");
         this.nombre = nombre;

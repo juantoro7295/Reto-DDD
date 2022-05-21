@@ -7,7 +7,7 @@ public class PersonalizadoFinalizado extends DomainEvent {
 
     private final PersonalizadoId personalizadoId;
 
-    public PersonalizadoFinalizado( PersonalizadoId personalizadoId) {
+    public PersonalizadoFinalizado(PersonalizadoId personalizadoId) {
         super("co.com.gym.entrenamiento.PersonalizadoFinalizado");
         this.personalizadoId = personalizadoId;
     }

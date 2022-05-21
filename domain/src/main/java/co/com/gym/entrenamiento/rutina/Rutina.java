@@ -12,8 +12,9 @@ import java.util.List;
 
 /**
  * Agregado Rutina
- * @Autor Juan Pablo Toro HUrtado
+ *
  * @version 1.0.0
+ * @Autor Juan Pablo Toro HUrtado
  * @Since 1.0.0
  */
 public class Rutina extends AggregateEvent<RutinaId> {
@@ -28,6 +29,7 @@ public class Rutina extends AggregateEvent<RutinaId> {
 
     /**
      * Constructor Rutina
+     *
      * @param entityId
      * @param nombreRutina
      * @param ejercicio
@@ -42,6 +44,7 @@ public class Rutina extends AggregateEvent<RutinaId> {
 
     /**
      * Rutina
+     *
      * @param entityId
      */
     public Rutina(RutinaId entityId) {
@@ -51,6 +54,7 @@ public class Rutina extends AggregateEvent<RutinaId> {
 
     /**
      * from De Rutina
+     *
      * @param rutinaId
      * @param events
      * @return Rutina
@@ -64,6 +68,7 @@ public class Rutina extends AggregateEvent<RutinaId> {
 
     /**
      * agregar Ejercicio
+     *
      * @param rutinaId
      * @param nombreEjercicio
      * @param detalleEjercicio
@@ -77,6 +82,7 @@ public class Rutina extends AggregateEvent<RutinaId> {
 
     /**
      * agregar material
+     *
      * @param rutinaId
      * @param nombreMaterial
      * @param detalle
@@ -88,6 +94,7 @@ public class Rutina extends AggregateEvent<RutinaId> {
 
     /**
      * agregar zona del cuerpo
+     *
      * @param rutinaId
      * @param calentamiento
      * @param zonaCuerpo
@@ -101,6 +108,7 @@ public class Rutina extends AggregateEvent<RutinaId> {
 
     /**
      * eliminar ejercicio
+     *
      * @param rutinaId
      */
 
@@ -111,6 +119,7 @@ public class Rutina extends AggregateEvent<RutinaId> {
 
     /**
      * actualizar rutina
+     *
      * @param rutinaId
      */
 

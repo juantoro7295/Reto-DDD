@@ -9,7 +9,7 @@ public class Apellido implements ValueObject<String> {
 
     public Apellido(String apellido) {
         this.apellido = Objects.requireNonNull(apellido);
-        if(this.apellido.isBlank()){
+        if (this.apellido.isBlank()) {
             throw new IllegalArgumentException("El apellido no puede estar vacio");
         }
     }

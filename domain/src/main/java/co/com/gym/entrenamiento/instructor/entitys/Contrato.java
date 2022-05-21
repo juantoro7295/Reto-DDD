@@ -3,6 +3,7 @@ package co.com.gym.entrenamiento.instructor.entitys;
 import co.com.gym.entrenamiento.instructor.values.ContratoId;
 import co.com.gym.entrenamiento.instructor.values.TipoDeContrato;
 import co.com.sofka.domain.generic.Entity;
+
 /**
  * Entidad Contrato
  *
@@ -21,6 +22,7 @@ public class Contrato extends Entity<ContratoId> {
 
     /**
      * Construsctor Contrato
+     *
      * @param entityId
      */
 
@@ -30,6 +32,7 @@ public class Contrato extends Entity<ContratoId> {
 
     /**
      * Constructor Contrato
+     *
      * @param entityId
      * @param nombreContrato
      * @param tipoDeContrato
@@ -43,6 +46,7 @@ public class Contrato extends Entity<ContratoId> {
 
     /**
      * crear contrato
+     *
      * @param nombreContrato
      * @param tipoDeContrato
      */

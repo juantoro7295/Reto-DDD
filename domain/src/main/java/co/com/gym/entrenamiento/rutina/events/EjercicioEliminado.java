@@ -7,7 +7,7 @@ public class EjercicioEliminado extends DomainEvent {
 
     private final RutinaId rutinaId;
 
-    public EjercicioEliminado( RutinaId rutinaId) {
+    public EjercicioEliminado(RutinaId rutinaId) {
         super("co.com.gym.entrenamiento.EjercicioEliminado");
         this.rutinaId = rutinaId;
     }

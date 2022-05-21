@@ -3,6 +3,7 @@ package co.com.gym.entrenamiento.personalizado.entitys;
 import co.com.gym.entrenamiento.personalizado.values.PlanId;
 import co.com.gym.generic.values.Descripcion;
 import co.com.sofka.domain.generic.Entity;
+
 /**
  * Entidad Plan
  *
@@ -20,6 +21,7 @@ public class Plan extends Entity<PlanId> {
 
     /**
      * Constructo Plan
+     *
      * @param entityId
      */
 
@@ -29,6 +31,7 @@ public class Plan extends Entity<PlanId> {
 
     /**
      * constructor Plan
+     *
      * @param entityId
      * @param nombrePlan
      * @param descripcion
@@ -41,11 +44,12 @@ public class Plan extends Entity<PlanId> {
 
     /**
      * crear plan
+     *
      * @param nombrePlan
      * @param descripcion
      */
 
-    public void crearPlan(String nombrePlan, String descripcion){
+    public void crearPlan(String nombrePlan, String descripcion) {
         this.nombrePlan = nombrePlan;
         this.descripcion = new Descripcion(descripcion);
     }

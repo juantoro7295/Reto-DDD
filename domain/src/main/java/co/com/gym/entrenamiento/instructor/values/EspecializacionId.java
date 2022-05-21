@@ -8,7 +8,7 @@ public class EspecializacionId extends Identity {
         super(id);
     }
 
-    public static EspecializacionId of(String id){
+    public static EspecializacionId of(String id) {
         return new EspecializacionId(id);
     }
 }
