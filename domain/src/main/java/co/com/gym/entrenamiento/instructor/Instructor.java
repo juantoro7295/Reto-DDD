@@ -14,7 +14,18 @@ import co.com.sofka.domain.generic.DomainEvent;
 
 import java.util.List;
 
+/**
+ * Agregado Instructor
+ *
+ * @version 1.0.0
+ * @Autor Juan Pablo Toro HUrtado
+ * @Since 1.0.0
+ */
+
 public class Instructor extends AggregateEvent<InstructorId> {
+    /**
+     * caracteriticas
+     */
 
     protected Nombre nombre;
     protected Apellido apellido;
@@ -23,6 +34,16 @@ public class Instructor extends AggregateEvent<InstructorId> {
     protected Especializacion especializacion;
 
 
+    /**
+     * constructor Instructor
+     *
+     * @param entityId
+     * @param nombre
+     * @param apellido
+     * @param contrato
+     * @param area
+     * @param especializacion
+     */
     public Instructor(InstructorId entityId, Nombre nombre, Apellido apellido, Contrato contrato,
                       Area area, Especializacion especializacion) {
         super(entityId);
@@ -30,10 +51,24 @@ public class Instructor extends AggregateEvent<InstructorId> {
         subscribe(new InstructorEventChange(this));
     }
 
+    /**
+     * constructor
+     *
+     * @param entityId
+     */
+
     public Instructor(InstructorId entityId) {
         super(entityId);
         subscribe(new InstructorEventChange(this));
     }
+
+    /**
+     * from de Instructor
+     *
+     * @param instructorId
+     * @param events
+     * @return
+     */
 
     public static Instructor from(InstructorId instructorId, List<DomainEvent> events) {
         var instructor = new Instructor(instructorId);
@@ -41,18 +76,47 @@ public class Instructor extends AggregateEvent<InstructorId> {
         return instructor;
     }
 
+    /**
+     * agregar area
+     *
+     * @param nombreArea
+     * @param descripcion
+     * @param instructorId
+     */
+
     public void agregarArea(String nombreArea, Descripcion descripcion, InstructorId instructorId) {
         appendChange(new AreaAgregada(nombreArea, descripcion, instructorId)).apply();
     }
+
+    /**
+     * agregar contrato
+     *
+     * @param instructorId
+     * @param nombreContrato
+     * @param tipoDeContrato
+     */
 
     public void agregarContrato(InstructorId instructorId, String nombreContrato, TipoDeContrato tipoDeContrato) {
         appendChange(new ContratoAgregado(instructorId, nombreContrato, tipoDeContrato)).apply();
     }
 
+    /**
+     * agregar especializacion
+     *
+     * @param instructorId
+     * @param especializacion
+     * @param descripcion
+     */
+
     public void agregarEspecializacion(InstructorId instructorId, String especializacion, Descripcion descripcion) {
         appendChange(new EspecializacionAgregada(instructorId, especializacion, descripcion)).apply();
     }
 
+    /**
+     * eliminar area
+     *
+     * @param instructorId
+     */
     public void eliminarArea(InstructorId instructorId) {
         appendChange(new AreaEliminada(instructorId)).apply();
 
