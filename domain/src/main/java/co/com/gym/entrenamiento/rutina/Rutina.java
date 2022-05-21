@@ -54,8 +54,8 @@ public class Rutina extends AggregateEvent<RutinaId> {
 
     }
 
-    public void eliminarMaterial(RutinaId rutinaId) {
-        appendChange(new MaterialEliminado(rutinaId)).apply();
+    public void actualizarRutina(RutinaId rutinaId) {
+        appendChange(new RutinaActualizada(rutinaId)).apply();
 
     }
 
