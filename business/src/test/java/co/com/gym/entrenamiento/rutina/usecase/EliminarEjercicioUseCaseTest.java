@@ -17,6 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class EliminarEjercicioUseCaseTest {
@@ -33,6 +34,9 @@ class EliminarEjercicioUseCaseTest {
         var rutinaId = RutinaId.of("1");
         var command = new EliminarEjercicio(rutinaId);
 
+        when(repository.getEventsBy("1")).thenReturn(history());
+        useCase.addRepository(repository);
+
         //act
         var events = UseCaseHandler.getInstance()
                 .setIdentifyExecutor(command.getRutinaId().value())
@@ -44,8 +48,8 @@ class EliminarEjercicioUseCaseTest {
         //assert
         var event = (EjercicioEliminado) events.get(0);
         Assertions.assertEquals("1", event.aggregateRootId());
-        Assertions.assertEquals(rutinaId, event.getRutinaId());
-        
+        Assertions.assertEquals(rutinaId,event.getRutinaId());
+
     }
 
     private List<DomainEvent> history() {
@@ -56,4 +60,6 @@ class EliminarEjercicioUseCaseTest {
 
 
     }
+
+
 }

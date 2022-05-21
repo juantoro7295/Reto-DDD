@@ -1,16 +1,16 @@
 package co.com.gym.entrenamiento.rutina.commands;
 
-import co.com.gym.entrenamiento.rutina.values.MaterialId;
+import co.com.gym.entrenamiento.rutina.values.RutinaId;
 import co.com.sofka.domain.generic.Command;
 
 public class EliminarMaterial extends Command {
-    private MaterialId materialId;
+    private final RutinaId rutinaId;
 
-    public EliminarMaterial(MaterialId materialId) {
-        this.materialId = materialId;
+    public EliminarMaterial(RutinaId rutinaId) {
+        this.rutinaId = rutinaId;
     }
 
-    public MaterialId getMaterialId() {
-        return materialId;
+    public RutinaId getRutinaId() {
+        return rutinaId;
     }
 }

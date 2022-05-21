@@ -3,10 +3,7 @@ package co.com.gym.entrenamiento.instructor;
 import co.com.gym.entrenamiento.instructor.entitys.Area;
 import co.com.gym.entrenamiento.instructor.entitys.Contrato;
 import co.com.gym.entrenamiento.instructor.entitys.Especializacion;
-import co.com.gym.entrenamiento.instructor.events.AreaAgregada;
-import co.com.gym.entrenamiento.instructor.events.ContratoAgregado;
-import co.com.gym.entrenamiento.instructor.events.EspecializacionAgregada;
-import co.com.gym.entrenamiento.instructor.events.InstructorCreado;
+import co.com.gym.entrenamiento.instructor.events.*;
 import co.com.gym.entrenamiento.instructor.values.InstructorId;
 import co.com.gym.entrenamiento.instructor.values.TipoDeContrato;
 import co.com.gym.generic.values.Apellido;
@@ -48,11 +45,17 @@ public class Instructor extends AggregateEvent<InstructorId> {
         appendChange(new AreaAgregada(nombreArea, descripcion, instructorId)).apply();
     }
 
-    public void agregarContrato(InstructorId instructorId, String nombreContrato, TipoDeContrato tipoDeContrato){
-        appendChange(new ContratoAgregado(instructorId,nombreContrato,tipoDeContrato)).apply();
+    public void agregarContrato(InstructorId instructorId, String nombreContrato, TipoDeContrato tipoDeContrato) {
+        appendChange(new ContratoAgregado(instructorId, nombreContrato, tipoDeContrato)).apply();
     }
-    public void agregarEspecializacion(InstructorId instructorId, String especializacion, Descripcion descripcion){
-        appendChange(new EspecializacionAgregada(instructorId,especializacion,descripcion)).apply();
+
+    public void agregarEspecializacion(InstructorId instructorId, String especializacion, Descripcion descripcion) {
+        appendChange(new EspecializacionAgregada(instructorId, especializacion, descripcion)).apply();
+    }
+
+    public void eliminarArea(InstructorId instructorId) {
+        appendChange(new AreaEliminada(instructorId)).apply();
+
     }
 
     public Nombre nombre() {

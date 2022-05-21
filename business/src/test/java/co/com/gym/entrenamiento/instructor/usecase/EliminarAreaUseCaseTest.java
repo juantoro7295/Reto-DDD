@@ -1,9 +1,8 @@
-package co.com.gym.entrenamiento.rutina.usecase;
+package co.com.gym.entrenamiento.instructor.usecase;
 
-import co.com.gym.entrenamiento.rutina.commands.AgregarMaterial;
-import co.com.gym.entrenamiento.rutina.events.MaterialAgregado;
-import co.com.gym.entrenamiento.rutina.values.Detalle;
-import co.com.gym.entrenamiento.rutina.values.RutinaId;
+import co.com.gym.entrenamiento.instructor.commands.EliminarArea;
+import co.com.gym.entrenamiento.instructor.events.AreaEliminada;
+import co.com.gym.entrenamiento.instructor.values.InstructorId;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
@@ -21,41 +20,38 @@ import static org.mockito.Mockito.when;
 
 
 @ExtendWith(MockitoExtension.class)
-class AgregarMaterialUseCaseTest {
-
+class EliminarAreaUseCaseTest {
     @InjectMocks
-    private AgregarMaterialUseCase useCase;
+    private EliminarAreaUseCase useCase;
 
     @Mock
     private DomainEventRepository repository;
 
     @Test
-    void AgregarMaterialUseCaseTestHappyPass() {
-        //arrange
-        var rutinaId = RutinaId.of("1");
-        var detalle = new Detalle("detalle", 5D);
-        var command = new AgregarMaterial(rutinaId, "nombreMaterial", detalle);
+    void eliminarAreaHappyPass() {
+        var instructorId = InstructorId.of("1");
+        var command = new EliminarArea(instructorId);
+
         when(repository.getEventsBy("1")).thenReturn(history());
         useCase.addRepository(repository);
-        //assert
+
+
+        //act
         var events = UseCaseHandler.getInstance()
-                .setIdentifyExecutor(command.getRutinaId().value())
+                .setIdentifyExecutor(command.getInstructorId().value())
                 .syncExecutor(useCase, new RequestCommand<>(command))
                 .orElseThrow()
                 .getDomainEvents();
+
         //assert
-        var event = (MaterialAgregado) events.get(0);
-        Assertions.assertEquals("1", event.aggregateRootId());
-        Assertions.assertEquals(rutinaId, event.getRutinaId());
-
-
+        var event = (AreaEliminada) events.get(0);
+        Assertions.assertEquals("1",event.aggregateRootId());
+        Assertions.assertEquals(instructorId, event.instructorId());
     }
 
     private List<DomainEvent> history() {
-        var rutinaId = RutinaId.of("1");
-        var detalle = new Detalle("detalle", 5D);
-        var event = new MaterialAgregado(rutinaId, "nombreMaterial", detalle);
-
+        var instructorId = InstructorId.of("1");
+        var event = new AreaEliminada(instructorId);
         event.setAggregateRootId("xxx");
         return List.of(event);
 

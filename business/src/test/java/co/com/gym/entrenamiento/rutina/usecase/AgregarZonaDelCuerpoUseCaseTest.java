@@ -18,6 +18,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
+import static org.mockito.Mockito.when;
+
 
 @ExtendWith(MockitoExtension.class)
 class AgregarZonaDelCuerpoUseCaseTest {
@@ -36,6 +38,8 @@ class AgregarZonaDelCuerpoUseCaseTest {
         var zonaCuerpo = new ZonaCuerpo("pecho", "dato");
 
         var command = new AgregarZonaDelCuerpo(rutinaId, calentamiento, zonaCuerpo);
+        when(repository.getEventsBy("1")).thenReturn(history());
+        useCase.addRepository(repository);
 
         //act
         var events = UseCaseHandler.getInstance()

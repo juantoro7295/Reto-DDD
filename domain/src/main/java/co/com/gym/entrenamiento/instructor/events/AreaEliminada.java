@@ -1,19 +1,19 @@
 package co.com.gym.entrenamiento.instructor.events;
 
-import co.com.gym.entrenamiento.instructor.values.AreaId;
+import co.com.gym.entrenamiento.instructor.values.InstructorId;
 import co.com.sofka.domain.generic.DomainEvent;
 
 public class AreaEliminada extends DomainEvent {
 
-    private final AreaId areaId;
+    private final InstructorId intructorId;
 
-    public AreaEliminada(String type, AreaId areaId) {
+    public AreaEliminada( InstructorId intructorId) {
         super("co.com.gym.entrenamiento.AreaEliminada");
-        this.areaId = areaId;
+        this.intructorId = intructorId;
     }
 
-    public AreaId getAreaId() {
-        return areaId;
+    public InstructorId instructorId() {
+        return intructorId;
     }
 
 }

@@ -48,8 +48,14 @@ public class Rutina extends AggregateEvent<RutinaId> {
         appendChange(new ZonaDelCuerpoAgregada(rutinaId, calentamiento, zonaCuerpo)).apply();
 
     }
-    public void eliminarEjericio(RutinaId rutinaId){
+
+    public void eliminarEjericio(RutinaId rutinaId) {
         appendChange(new EjercicioEliminado(rutinaId)).apply();
+
+    }
+
+    public void eliminarMaterial(RutinaId rutinaId) {
+        appendChange(new MaterialEliminado(rutinaId)).apply();
 
     }
 

@@ -14,6 +14,7 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -63,7 +64,7 @@ class AgregarInstructorUseCaseTest {
         //assert
 
 //        var event = (InstructorCreado) events.get(0);
-//        Assertions.assertEquals("juan", event.getNombre().value());
+//        Assertions.assertEquals(nombre, event.getNombre());
 
 
     }

@@ -1,17 +1,17 @@
 package co.com.gym.entrenamiento.instructor.commands;
 
-import co.com.gym.entrenamiento.instructor.values.AreaId;
+import co.com.gym.entrenamiento.instructor.values.InstructorId;
 import co.com.sofka.domain.generic.Command;
 
 public class EliminarArea extends Command {
 
-    private AreaId areaId;
+    private InstructorId instructorId;
 
-    public EliminarArea(AreaId areaId) {
-        this.areaId = areaId;
+    public EliminarArea(InstructorId instructorId) {
+        this.instructorId = instructorId;
     }
 
-    public AreaId getAreaId() {
-        return areaId;
+    public InstructorId getInstructorId() {
+        return instructorId;
     }
 }
